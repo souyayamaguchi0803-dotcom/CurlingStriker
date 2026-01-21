@@ -14,14 +14,6 @@ public class Stone : MonoBehaviour
         friction = GetComponent<Friction>();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && !IsOverLine())
-        {
-            isAccelerating = true;
-        }
-    }
-
     void FixedUpdate()
     {
         if (isAccelerating)
@@ -30,6 +22,15 @@ public class Stone : MonoBehaviour
             isAccelerating = false;
         }
         rb.linearVelocity = friction.Apply(rb.linearVelocity); // 摩擦力をかける
+    }
+
+    // 加速できるなら加速を準備する
+    public void TryAccelerate()
+    {
+        if (!IsOverLine())
+        {
+            isAccelerating = true;
+        }
     }
 
     // 加速する
