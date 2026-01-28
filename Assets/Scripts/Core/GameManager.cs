@@ -7,10 +7,12 @@ public class GameManager : MonoBehaviour
     private GameOverChecker gameOverChecker;
     [SerializeField] private GameResult result;
     [SerializeField] private Stone stone;
+    [SerializeField] private AudioClip gameBGM;
 
     void Start()
     {
         gameOverChecker = new GameOverChecker(stone);
+        SoundManager.Instance.PlayBGM(gameBGM);
     }
 
     // Update is called once per frame
