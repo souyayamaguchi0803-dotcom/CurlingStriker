@@ -6,6 +6,7 @@ public class Stone : MonoBehaviour
     private Friction friction;
     [SerializeField] private float accel = 0.4f;
     [SerializeField] private GameObject line;
+    [SerializeField] private AudioClip pushStoneSE;
     private bool isAccelerating = false;
 
     void Awake()
@@ -19,6 +20,7 @@ public class Stone : MonoBehaviour
         if (isAccelerating)
         {
             Acceleration();
+            SoundManager.Instance.PlaySE(pushStoneSE);
             isAccelerating = false;
         }
         rb.linearVelocity = friction.Apply(rb.linearVelocity); // 摩擦力をかける
