@@ -1669,6 +1669,10 @@ PrefabInstance:
       value: Game Manager
       objectReference: {fileID: 0}
     - target: {fileID: 1602556130039495008, guid: 94631bbc30c7f344c899a6815de12b5d, type: 3}
+      propertyPath: line
+      value: 
+      objectReference: {fileID: 2020749236}
+    - target: {fileID: 1602556130039495008, guid: 94631bbc30c7f344c899a6815de12b5d, type: 3}
       propertyPath: stone
       value: 
       objectReference: {fileID: 784520693}
@@ -1680,6 +1684,10 @@ PrefabInstance:
       propertyPath: gameBGM
       value: 
       objectReference: {fileID: 8300000, guid: 080b4458e7600c549b0d9208852cd6ab, type: 3}
+    - target: {fileID: 1602556130039495008, guid: 94631bbc30c7f344c899a6815de12b5d, type: 3}
+      propertyPath: stoneController
+      value: 
+      objectReference: {fileID: 784520694}
     - target: {fileID: 2615599346825388084, guid: 94631bbc30c7f344c899a6815de12b5d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1846,10 +1854,10 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 5679625496655652420}
+  - {fileID: 1090927218267863916}
   - {fileID: 8675901738902844754}
   - {fileID: 7933922830482463935}
   - {fileID: 3510076726675237941}
   - {fileID: 4919517268569284142}
   - {fileID: 1550579842}
   - {fileID: 481695018}
-  - {fileID: 1090927218267863916}

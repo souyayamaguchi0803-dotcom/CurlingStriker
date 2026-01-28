@@ -4,21 +4,24 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private bool isInGame = true;
-    private GameOverChecker gameOverChecker;
+    private GameReferee gameReferee;
     [SerializeField] private GameResult result;
     [SerializeField] private Stone stone;
+    [SerializeField] private StoneController stoneController;
+    [SerializeField] private GameObject line;
     [SerializeField] private AudioClip gameBGM;
 
     void Start()
     {
-        gameOverChecker = new GameOverChecker(stone);
+        gameReferee = new GameReferee(stone, line);
+        stoneController.SetReferee(gameReferee);
         SoundManager.Instance.PlayBGM(gameBGM);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isInGame && gameOverChecker.IsGameOver())
+        if (isInGame && gameReferee.IsGameOver())
         {
             OnGameOver();
         }

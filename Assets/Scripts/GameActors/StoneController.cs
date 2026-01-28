@@ -3,10 +3,11 @@ using UnityEngine;
 public class StoneController : MonoBehaviour
 {
     [SerializeField] private Stone stone;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private GameReferee referee;
+    
+    public void SetReferee(GameReferee referee)
     {
-
+        this.referee = referee;
     }
 
     // Update is called once per frame
@@ -14,7 +15,10 @@ public class StoneController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            stone.TryAccelerate();
+            if (referee.CanAccelerate())
+            {
+                stone.TryAccelerate();
+            }
         }
     }
 }

@@ -5,7 +5,6 @@ public class Stone : MonoBehaviour
     private Rigidbody2D rb;
     private Friction friction;
     [SerializeField] private float accel = 0.4f;
-    [SerializeField] private GameObject line;
     [SerializeField] private AudioClip pushStoneSE;
     private bool isAccelerating = false;
 
@@ -29,10 +28,7 @@ public class Stone : MonoBehaviour
     // 加速できるなら加速を準備する
     public void TryAccelerate()
     {
-        if (!IsOverLine())
-        {
-            isAccelerating = true;
-        }
+        isAccelerating = true;
     }
 
     // 加速する
@@ -47,10 +43,6 @@ public class Stone : MonoBehaviour
         return rb.linearVelocity == Vector2.zero;
     }
 
-    // ボーダーラインを超えたか判定
-    public bool IsOverLine()
-    {
-        if (line == null) return false; // lineが未設定の場合falseを返す
-        return transform.position.x > line.transform.position.x;
-    }
+    // 現在のX座標を返す
+    public float CurrentX => transform.position.x;
 }
