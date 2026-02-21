@@ -33,8 +33,8 @@ public class SoundManager : MonoBehaviour
     // 音量をロード
     private void LoadVolume()
     {
-        bgmSource.volume = DefaultVolume;
-        seSource.volume = DefaultVolume;
+        bgmSource.volume = PlayerPrefs.GetFloat(BgmVolumeKey, DefaultVolume);
+        seSource.volume = PlayerPrefs.GetFloat(SeVolumeKey, DefaultVolume);
     }
 
     // BGMの音量を設定
