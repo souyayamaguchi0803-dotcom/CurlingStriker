@@ -8,15 +8,8 @@ public class HighScoreManager
     // ハイスコアを返す
     public static Score GetHighScore()
     {
-        if (PlayerPrefs.HasKey(HighScoreKey))
-        {
-            float highScoreValue = PlayerPrefs.GetFloat(HighScoreKey);
-            return new Score(highScoreValue);
-        }
-        else
-        {
-            return new Score(DefaultHighScore);
-        }
+        float highScoreValue = PlayerPrefs.GetFloat(HighScoreKey, DefaultHighScore);
+        return new Score(highScoreValue);
     }
 
     // 現在のスコアの方が良いなら、更新する
