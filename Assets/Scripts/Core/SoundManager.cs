@@ -48,7 +48,7 @@ public class SoundManager : MonoBehaviour
     // BGMの音量を設定
     public void SetSeVolume(float volume)
     {
-        bgmSource.volume = volume;
+        seSource.volume = volume;
         PlayerPrefs.SetFloat(SeVolumeKey, volume);
         PlayerPrefs.Save();
     }
