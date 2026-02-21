@@ -13,7 +13,7 @@ public class StoneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        if (HasAccelerateInput)
         {
             if (referee != null && referee.CanAccelerate())
             {
@@ -21,4 +21,6 @@ public class StoneController : MonoBehaviour
             }
         }
     }
+
+    private bool HasAccelerateInput => Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0);
 }
