@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Option : MonoBehaviour
+// 音量設定を操作する
+public class VolumeController : MonoBehaviour
 {
-    [SerializeField] private GameObject optionPanel;
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider seSlider;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,19 +17,6 @@ public class Option : MonoBehaviour
 
         bgmSlider.onValueChanged.AddListener(OnBgmVolumeChanged);
         seSlider.onValueChanged.AddListener(OnSeVolumeChanged);
-        optionPanel.SetActive(false);
-    }
-
-    // 設計パネルを開く
-    public void OpenOption()
-    {
-        optionPanel.SetActive(true);
-    }
-
-    // 設計パネルを閉じる
-    public void CloseOption()
-    {
-        optionPanel.SetActive(false);
     }
 
     // BGMの音量設定
