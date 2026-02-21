@@ -18,9 +18,21 @@ public class SoundManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
+            LoadVolume();
         }
     }
 
+    /* ---音量の設定--- */
+    private const float DefaultVolume = 0.7f;
+
+    // 音量をロード
+    private void LoadVolume()
+    {
+        bgmSource.volume = DefaultVolume;
+        seSource.volume = DefaultVolume;
+    }
+
+    /* ---オーディオの再生--- */
     // BGMを再生する
     public void PlayBGM(AudioClip clip)
     {
