@@ -4,7 +4,7 @@ public class StoneController : MonoBehaviour
 {
     [SerializeField] private Stone stone;
     private GameReferee referee;
-    
+
     public void SetReferee(GameReferee referee)
     {
         this.referee = referee;
@@ -13,9 +13,9 @@ public class StoneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            if (referee.CanAccelerate())
+            if (referee != null && referee.CanAccelerate())
             {
                 stone.TryAccelerate();
             }
