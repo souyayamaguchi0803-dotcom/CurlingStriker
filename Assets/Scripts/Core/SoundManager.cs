@@ -23,6 +23,8 @@ public class SoundManager : MonoBehaviour
     }
 
     /* ---音量の設定--- */
+    private const string BgmVolumeKey = "BgmVolume";
+    private const string SeVolumeKey = "BgmVolume";
     private const float DefaultVolume = 0.7f;
 
     // 音量をロード
@@ -30,6 +32,22 @@ public class SoundManager : MonoBehaviour
     {
         bgmSource.volume = DefaultVolume;
         seSource.volume = DefaultVolume;
+    }
+
+    // BGMの音量を設定
+    public void SetBgmVolume(float volume)
+    {
+        bgmSource.volume = volume;
+        PlayerPrefs.SetFloat(BgmVolumeKey, volume);
+        PlayerPrefs.Save();
+    }
+
+    // BGMの音量を設定
+    public void SetSeVolume(float volume)
+    {
+        bgmSource.volume = volume;
+        PlayerPrefs.SetFloat(SeVolumeKey, volume);
+        PlayerPrefs.Save();
     }
 
     /* ---オーディオの再生--- */
