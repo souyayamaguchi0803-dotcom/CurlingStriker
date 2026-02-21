@@ -2280,6 +2280,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Option
   optionPanel: {fileID: 1511031886}
+  bgmSlider: {fileID: 1809860709}
+  seSlider: {fileID: 647241861}
 --- !u!1 &1790101120
 GameObject:
   m_ObjectHideFlags: 0
