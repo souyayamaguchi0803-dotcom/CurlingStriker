@@ -7,10 +7,11 @@ public class VolumeSlider : MonoBehaviour
 {
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider seSlider;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (SoundSpeaker.Instance != null)
+        if (VolumeSettings.Instance != null)
         {
             bgmSlider.value = VolumeSettings.Instance.BgmVolume;
             seSlider.value = VolumeSettings.Instance.SeVolume;
