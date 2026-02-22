@@ -23,6 +23,9 @@ public static class VolumeSettings
     // BGMの音量を設定
     public static void SetBgmVolume(float volume)
     {
+        // もし同じ値なら処理をスキップ
+        if (Mathf.Approximately(BgmVolume, volume)) return;
+
         BgmVolume = volume;
         PlayerPrefs.SetFloat(BgmVolumeKey, volume);
         PlayerPrefs.Save();
@@ -32,6 +35,9 @@ public static class VolumeSettings
     // SEの音量を設定
     public static void SetSeVolume(float volume)
     {
+        // もし同じ値なら処理をスキップ
+        if (Mathf.Approximately(BgmVolume, volume)) return;
+
         SeVolume = volume;
         PlayerPrefs.SetFloat(SeVolumeKey, volume);
         PlayerPrefs.Save();
