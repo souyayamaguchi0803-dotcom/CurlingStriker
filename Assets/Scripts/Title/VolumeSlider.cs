@@ -24,7 +24,7 @@ public class VolumeSlider : MonoBehaviour
     // BGMの音量設定
     private void OnBgmVolumeChanged(float value)
     {
-        if (SoundSpeaker.Instance != null)
+        if (VolumeSettings.Instance != null)
         {
             VolumeSettings.Instance.SetBgmVolume(value);
         }
@@ -33,7 +33,7 @@ public class VolumeSlider : MonoBehaviour
     // SEの音量設定
     private void OnSeVolumeChanged(float value)
     {
-        if (SoundSpeaker.Instance != null)
+        if (VolumeSettings.Instance != null)
         {
             VolumeSettings.Instance.SetSeVolume(value);
         }
