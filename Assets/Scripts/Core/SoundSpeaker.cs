@@ -2,9 +2,9 @@ using UnityEngine;
 
 // サウンド管理クラス
 // シングルトンパターンで実装
-public class SoundManager : MonoBehaviour
+public class SoundSpeaker : MonoBehaviour
 {
-    public static SoundManager Instance { get; private set; }
+    public static SoundSpeaker Instance { get; private set; }
     [SerializeField] private AudioSource bgmSource;
     [SerializeField] private AudioSource seSource;
 
@@ -18,42 +18,39 @@ public class SoundManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
-            LoadVolume();
         }
     }
 
-    /* ---音量の設定--- */
-    private const string BgmVolumeKey = "BgmVolume";
-    private const string SeVolumeKey = "SeVolume";
-    private const float DefaultVolume = 0.7f;
-
-    public float BgmVolume => bgmSource.volume;
-    public float SeVolume => seSource.volume;
-
-    // 音量をロード
-    private void LoadVolume()
+    private void Start()
     {
-        bgmSource.volume = PlayerPrefs.GetFloat(BgmVolumeKey, DefaultVolume);
-        seSource.volume = PlayerPrefs.GetFloat(SeVolumeKey, DefaultVolume);
+        // 起動時に、現在の設定値を読み込んでスピーカーに適用する
+        bgmSource.volume = VolumeSettings.BgmVolume;
+        seSource.volume = VolumeSettings.SeVolume;
+
+        // 音量の設定の変化イベントを購読する
+        VolumeSettings.OnBgmVolumeChanged += ApplyBgmVolume;
+        VolumeSettings.OnSeVolumeChanged += ApplySeVolume;
     }
 
-    // BGMの音量を設定
-    public void SetBgmVolume(float volume)
+    private void OnDestroy()
+    {
+        // オブジェクト破棄時は購読を解除する
+        // シングルトンであるが、エラー防止のため
+        VolumeSettings.OnBgmVolumeChanged -= ApplyBgmVolume;
+        VolumeSettings.OnSeVolumeChanged -= ApplySeVolume;
+    }
+
+    // イベント受信時のメソッド
+    private void ApplyBgmVolume(float volume)
     {
         bgmSource.volume = volume;
-        PlayerPrefs.SetFloat(BgmVolumeKey, volume);
-        PlayerPrefs.Save();
     }
 
-    // BGMの音量を設定
-    public void SetSeVolume(float volume)
+    private void ApplySeVolume(float volume)
     {
         seSource.volume = volume;
-        PlayerPrefs.SetFloat(SeVolumeKey, volume);
-        PlayerPrefs.Save();
     }
 
-    /* ---オーディオの再生--- */
     // BGMを再生する
     public void PlayBGM(AudioClip clip)
     {
