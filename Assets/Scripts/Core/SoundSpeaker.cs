@@ -24,23 +24,20 @@ public class SoundSpeaker : MonoBehaviour
     private void Start()
     {
         // 起動時に、現在の設定値を読み込んでスピーカーに適用する
-        bgmSource.volume = VolumeSettings.Instance.BgmVolume;
-        seSource.volume = VolumeSettings.Instance.SeVolume;
+        bgmSource.volume = VolumeSettings.BgmVolume;
+        seSource.volume = VolumeSettings.SeVolume;
 
         // 音量の設定の変化イベントを購読する
-        VolumeSettings.Instance.OnBgmVolumeChanged += ApplyBgmVolume;
-        VolumeSettings.Instance.OnSeVolumeChanged += ApplySeVolume;
+        VolumeSettings.OnBgmVolumeChanged += ApplyBgmVolume;
+        VolumeSettings.OnSeVolumeChanged += ApplySeVolume;
     }
 
     private void OnDestroy()
     {
-        if (VolumeSettings.Instance != null)
-        {
-            // オブジェクト破棄時は購読を解除する
-            // シングルトンであるが、エラー防止のため
-            VolumeSettings.Instance.OnBgmVolumeChanged -= ApplyBgmVolume;
-            VolumeSettings.Instance.OnSeVolumeChanged -= ApplySeVolume;
-        }
+        // オブジェクト破棄時は購読を解除する
+        // シングルトンであるが、エラー防止のため
+        VolumeSettings.OnBgmVolumeChanged -= ApplyBgmVolume;
+        VolumeSettings.OnSeVolumeChanged -= ApplySeVolume;
     }
 
     // イベント受信時のメソッド

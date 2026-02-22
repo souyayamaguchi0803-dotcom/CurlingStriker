@@ -11,11 +11,8 @@ public class VolumeSlider : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (VolumeSettings.Instance != null)
-        {
-            bgmSlider.value = VolumeSettings.Instance.BgmVolume;
-            seSlider.value = VolumeSettings.Instance.SeVolume;
-        }
+        bgmSlider.value = VolumeSettings.BgmVolume;
+        seSlider.value = VolumeSettings.SeVolume;
 
         bgmSlider.onValueChanged.AddListener(OnBgmVolumeChanged);
         seSlider.onValueChanged.AddListener(OnSeVolumeChanged);
@@ -24,18 +21,12 @@ public class VolumeSlider : MonoBehaviour
     // BGMの音量設定
     private void OnBgmVolumeChanged(float value)
     {
-        if (VolumeSettings.Instance != null)
-        {
-            VolumeSettings.Instance.SetBgmVolume(value);
-        }
+        VolumeSettings.SetBgmVolume(value);
     }
 
     // SEの音量設定
     private void OnSeVolumeChanged(float value)
     {
-        if (VolumeSettings.Instance != null)
-        {
-            VolumeSettings.Instance.SetSeVolume(value);
-        }
+        VolumeSettings.SetSeVolume(value);
     }
 }
