@@ -617,11 +617,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dae203d2115c76442b873edc010c8c70, type: 3}
---- !u!82 &211129398 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6552413974931686145, guid: 0115c61209f2ac74782c580c62011bb7, type: 3}
-  m_PrefabInstance: {fileID: 1111853156}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &229207931
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,10 +2023,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3254468884949721874, guid: 0115c61209f2ac74782c580c62011bb7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1688606215}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0115c61209f2ac74782c580c62011bb7, type: 3}
 --- !u!1 &1123403972
 GameObject:
@@ -2660,11 +2652,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546427440}
   m_CullTransparentMesh: 1
---- !u!82 &1555761017 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5177039273657672105, guid: 0115c61209f2ac74782c580c62011bb7, type: 3}
-  m_PrefabInstance: {fileID: 1111853156}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1574037436
 GameObject:
   m_ObjectHideFlags: 0
@@ -2805,25 +2792,6 @@ MonoBehaviour:
   optionPanel: {fileID: 1511031886}
   initialSelectedObject: {fileID: 1809860707}
   closedSelectedObject: {fileID: 966840122}
---- !u!1 &1688606212 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3254468884949721874, guid: 0115c61209f2ac74782c580c62011bb7, type: 3}
-  m_PrefabInstance: {fileID: 1111853156}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1688606215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1688606212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1e7edcd3ee833247b18ad3dcefdd2d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VolumeSettings
-  bgmSource: {fileID: 1555761017}
-  seSource: {fileID: 211129398}
 --- !u!1 &1790101120
 GameObject:
   m_ObjectHideFlags: 0
