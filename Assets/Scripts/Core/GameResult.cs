@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameResult : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class GameResult : MonoBehaviour
     [SerializeField] private GameObject house;
     [SerializeField] private GameObject resultUI;
     [SerializeField] private TextMeshProUGUI resultText;
+    [SerializeField] private GameObject initialSelectedObject;
 
     // ゲーム終了時の処理
     public void EndGame()
@@ -14,6 +16,7 @@ public class GameResult : MonoBehaviour
         Score score = new Score(stone.transform.position, house.transform.position);
         ShowResult(score);
         HighScoreManager.UpdateHighScore(score);
+        InitializeFocus();
     }
 
     // リザルトを表示する
@@ -28,5 +31,15 @@ public class GameResult : MonoBehaviour
         }
 
         resultUI.SetActive(true);
+    }
+
+    // フォーカスを初期化する
+    void InitializeFocus()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        if (initialSelectedObject != null)
+        {
+            EventSystem.current.SetSelectedGameObject(initialSelectedObject);
+        }
     }
 }
