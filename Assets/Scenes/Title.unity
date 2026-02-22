@@ -2325,7 +2325,7 @@ GameObject:
   - component: {fileID: 1332967964}
   - component: {fileID: 1332967963}
   m_Layer: 0
-  m_Name: HighScore Reseter
+  m_Name: HighScore Resetter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
