@@ -19,6 +19,7 @@ public class HighScoreManager
         if (currentScore.IsBetterThan(highScore))
         {
             PlayerPrefs.SetFloat(HighScoreKey, currentScore.Value);
+            PlayerPrefs.Save();
         }
     }
 
@@ -26,5 +27,6 @@ public class HighScoreManager
     public static void ResetHighScore()
     {
         PlayerPrefs.SetFloat(HighScoreKey, DefaultHighScore);
+        PlayerPrefs.Save();
     }
 }
