@@ -32,6 +32,17 @@ public class SoundSpeaker : MonoBehaviour
         VolumeSettings.Instance.OnSeVolumeChanged += ApplySeVolume;
     }
 
+    // イベント受信時のメソッド
+    private void ApplyBgmVolume(float volume)
+    {
+        bgmSource.volume = volume;
+    }
+
+    private void ApplySeVolume(float volume)
+    {
+        seSource.volume = volume;
+    }
+
     // BGMを再生する
     public void PlayBGM(AudioClip clip)
     {
@@ -41,16 +52,6 @@ public class SoundSpeaker : MonoBehaviour
         bgmSource.clip = clip;
         bgmSource.loop = true; // BGMなのでループさせる
         bgmSource.Play();
-    }
-
-    private void ApplyBgmVolume(float volume)
-    {
-        bgmSource.volume = volume;
-    }
-
-    private void ApplySeVolume(float volume)
-    {
-        seSource.volume = volume;
     }
 
     // SEを再生する
