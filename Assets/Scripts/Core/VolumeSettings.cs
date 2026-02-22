@@ -36,7 +36,7 @@ public static class VolumeSettings
     public static void SetSeVolume(float volume)
     {
         // もし同じ値なら処理をスキップ
-        if (Mathf.Approximately(BgmVolume, volume)) return;
+        if (Mathf.Approximately(SeVolume, volume)) return;
 
         SeVolume = volume;
         PlayerPrefs.SetFloat(SeVolumeKey, volume);
