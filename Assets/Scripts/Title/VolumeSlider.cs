@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // 音量設定を操作する
-public class VolumeController : MonoBehaviour
+public class VolumeSlider : MonoBehaviour
 {
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider seSlider;
