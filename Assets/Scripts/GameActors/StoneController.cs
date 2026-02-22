@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StoneController : MonoBehaviour
 {
@@ -18,5 +19,20 @@ public class StoneController : MonoBehaviour
         stone.TryAccelerate();
     }
 
-    private bool HasAccelerateInput => Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0);
+    private bool HasAccelerateInput
+    {
+        get
+        {
+            // キーボードのスペースキーが押されたか
+            bool isSpacePressed = Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame;
+
+            // マウスの左クリックが押されたか
+            bool isMousePressed = Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame;
+
+            // スマホなどの画面タップ（タッチパネル）が押されたか
+            bool isTouched = Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame;
+
+            return isSpacePressed || isMousePressed || isTouched;
+        }
+    }
 }
