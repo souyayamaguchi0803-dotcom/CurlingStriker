@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 // 音量設定を操作する
@@ -9,10 +10,10 @@ public class VolumeSlider : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (SoundManager.Instance != null)
+        if (SoundSpeaker.Instance != null)
         {
-            bgmSlider.value = SoundManager.Instance.BgmVolume;
-            seSlider.value = SoundManager.Instance.SeVolume;
+            bgmSlider.value = VolumeSettings.Instance.BgmVolume;
+            seSlider.value = VolumeSettings.Instance.SeVolume;
         }
 
         bgmSlider.onValueChanged.AddListener(OnBgmVolumeChanged);
@@ -22,18 +23,18 @@ public class VolumeSlider : MonoBehaviour
     // BGMの音量設定
     private void OnBgmVolumeChanged(float value)
     {
-        if (SoundManager.Instance != null)
+        if (SoundSpeaker.Instance != null)
         {
-            SoundManager.Instance.SetBgmVolume(value);
+            VolumeSettings.Instance.SetBgmVolume(value);
         }
     }
 
     // SEの音量設定
     private void OnSeVolumeChanged(float value)
     {
-        if (SoundManager.Instance != null)
+        if (SoundSpeaker.Instance != null)
         {
-            SoundManager.Instance.SetSeVolume(value);
+            VolumeSettings.Instance.SetSeVolume(value);
         }
     }
 }

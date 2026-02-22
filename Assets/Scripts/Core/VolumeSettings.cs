@@ -1,12 +1,17 @@
 using UnityEngine;
 
-// サウンド管理クラス
-// シングルトンパターンで実装
-public class SoundManager : MonoBehaviour
+public class VolumeSettings : MonoBehaviour
 {
-    public static SoundManager Instance { get; private set; }
+    public static VolumeSettings Instance { get; private set; }
     [SerializeField] private AudioSource bgmSource;
     [SerializeField] private AudioSource seSource;
+
+    private const string BgmVolumeKey = "BgmVolume";
+    private const string SeVolumeKey = "SeVolume";
+    private const float DefaultVolume = 0.7f;
+
+    public float BgmVolume => bgmSource.volume;
+    public float SeVolume => seSource.volume;
 
     private void Awake()
     {
@@ -21,14 +26,6 @@ public class SoundManager : MonoBehaviour
             LoadVolume();
         }
     }
-
-    /* ---音量の設定--- */
-    private const string BgmVolumeKey = "BgmVolume";
-    private const string SeVolumeKey = "SeVolume";
-    private const float DefaultVolume = 0.7f;
-
-    public float BgmVolume => bgmSource.volume;
-    public float SeVolume => seSource.volume;
 
     // 音量をロード
     private void LoadVolume()
@@ -45,29 +42,11 @@ public class SoundManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    // BGMの音量を設定
+    // SEの音量を設定
     public void SetSeVolume(float volume)
     {
         seSource.volume = volume;
         PlayerPrefs.SetFloat(SeVolumeKey, volume);
         PlayerPrefs.Save();
-    }
-
-    /* ---オーディオの再生--- */
-    // BGMを再生する
-    public void PlayBGM(AudioClip clip)
-    {
-        // 既に流れているなら何もしない
-        if (bgmSource.clip == clip && bgmSource.isPlaying) return;
-
-        bgmSource.clip = clip;
-        bgmSource.loop = true; // BGMなのでループさせる
-        bgmSource.Play();
-    }
-
-    // SEを再生する
-    public void PlaySE(AudioClip clip)
-    {
-        seSource.PlayOneShot(clip);
     }
 }

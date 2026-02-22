@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     {
         gameReferee = new GameReferee(stone, line);
         stoneController.SetReferee(gameReferee);
-        SoundManager.Instance.PlayBGM(gameBGM);
+        SoundSpeaker.Instance.PlayBGM(gameBGM);
     }
 
     // Update is called once per frame

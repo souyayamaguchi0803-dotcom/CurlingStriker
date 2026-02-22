@@ -19,7 +19,7 @@ public class Stone : MonoBehaviour
         if (isAccelerating)
         {
             Acceleration();
-            SoundManager.Instance.PlaySE(pushStoneSE);
+            SoundSpeaker.Instance.PlaySE(pushStoneSE);
             isAccelerating = false;
         }
         rb.linearVelocity = friction.Apply(rb.linearVelocity); // 摩擦力をかける
