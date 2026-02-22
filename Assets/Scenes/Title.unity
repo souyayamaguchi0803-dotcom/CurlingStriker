@@ -2301,6 +2301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OptionPanelToggle
   optionPanel: {fileID: 1511031886}
+  initialSelectedObject: {fileID: 1809860707}
+  closedSelectedObject: {fileID: 966840122}
 --- !u!1 &1790101120
 GameObject:
   m_ObjectHideFlags: 0
@@ -2429,10 +2431,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 582156754}
+    m_SelectOnDown: {fileID: 647241861}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
