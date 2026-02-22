@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class HighScoreReseter : MonoBehaviour
+public class HighScoreResetter : MonoBehaviour
 {
     // 必要な場合、ハイスコアを描画するクラスへの参照を保持
     [SerializeField] private HighScoreDisplay highScoreDisplay;
