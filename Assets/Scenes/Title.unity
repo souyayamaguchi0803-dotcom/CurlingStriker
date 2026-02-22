@@ -669,11 +669,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1839062782}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -699,7 +699,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 229207934}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1332967963}
+        m_TargetAssemblyTypeName: HighScoreReseter, Assembly-CSharp
+        m_MethodName: CloseConfirmPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &229207934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2332,6 +2344,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResetButtonHandler
   highScoreDisplay: {fileID: 2135932206}
+  confirmPanel: {fileID: 1038890229}
+  initialSelectedObject: {fileID: 229207931}
+  closedSelectedObject: {fileID: 1815839603}
 --- !u!4 &1332967964
 Transform:
   m_ObjectHideFlags: 0
@@ -2943,6 +2958,11 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1815839603 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6359954463321599024, guid: a536903d48b81104daba0bccf04c18d6, type: 3}
+  m_PrefabInstance: {fileID: 8051522896544069951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1839062780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2995,12 +3015,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 229207933}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -3025,7 +3045,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1839062783}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1332967963}
+        m_TargetAssemblyTypeName: HighScoreReseter, Assembly-CSharp
+        m_MethodName: ResetHighScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1839062783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3750,7 +3782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 744135821018403020, guid: a536903d48b81104daba0bccf04c18d6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResetHighScore
+      value: OpenConfirmPanel
       objectReference: {fileID: 0}
     - target: {fileID: 744135821018403020, guid: a536903d48b81104daba0bccf04c18d6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
