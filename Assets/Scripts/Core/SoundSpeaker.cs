@@ -32,6 +32,17 @@ public class SoundSpeaker : MonoBehaviour
         VolumeSettings.Instance.OnSeVolumeChanged += ApplySeVolume;
     }
 
+    private void OnDestroy()
+    {
+        if (VolumeSettings.Instance != null)
+        {
+            // オブジェクト破棄時は購読を解除する
+            // シングルトンであるが、エラー防止のため
+            VolumeSettings.Instance.OnBgmVolumeChanged -= ApplyBgmVolume;
+            VolumeSettings.Instance.OnSeVolumeChanged -= ApplySeVolume;
+        }
+    }
+
     // イベント受信時のメソッド
     private void ApplyBgmVolume(float volume)
     {
