@@ -16,7 +16,7 @@ public class GameResult : MonoBehaviour
         Score score = new Score(stone.transform.position, house.transform.position);
         ShowResult(score);
         HighScoreManager.UpdateHighScore(score);
-        InitializeFocus();
+        FocusSetter.Set(initialSelectedObject);
     }
 
     // リザルトを表示する
@@ -31,15 +31,5 @@ public class GameResult : MonoBehaviour
         }
 
         resultUI.SetActive(true);
-    }
-
-    // フォーカスを初期化する
-    void InitializeFocus()
-    {
-        EventSystem.current.SetSelectedGameObject(null);
-        if (initialSelectedObject != null)
-        {
-            EventSystem.current.SetSelectedGameObject(initialSelectedObject);
-        }
     }
 }
