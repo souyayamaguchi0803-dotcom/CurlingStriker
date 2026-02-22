@@ -24,7 +24,7 @@ public class SoundManager : MonoBehaviour
 
     /* ---音量の設定--- */
     private const string BgmVolumeKey = "BgmVolume";
-    private const string SeVolumeKey = "BgmVolume";
+    private const string SeVolumeKey = "SeVolume";
     private const float DefaultVolume = 0.7f;
 
     public float BgmVolume => bgmSource.volume;
