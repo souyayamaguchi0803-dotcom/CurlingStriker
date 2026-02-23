@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2615599346825388084}
   - component: {fileID: 1602556130039495008}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: Game Director
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,3 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   result: {fileID: 0}
   stone: {fileID: 0}
+  stoneController: {fileID: 0}
+  line: {fileID: 0}
+  gameBGM: {fileID: 0}
