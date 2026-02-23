@@ -700,9 +700,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1332967963}
-        m_TargetAssemblyTypeName: HighScoreReseter, Assembly-CSharp
-        m_MethodName: CloseConfirmPanel
+      - m_Target: {fileID: 670926383}
+        m_TargetAssemblyTypeName: PanelToggle, Assembly-CSharp
+        m_MethodName: ClosePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -750,6 +750,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229207931}
   m_CullTransparentMesh: 1
+--- !u!1 &234345294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 234345295}
+  - component: {fileID: 234345296}
+  m_Layer: 0
+  m_Name: Option
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &234345295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234345294}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.8359374, y: 24.403404, z: 0}
+  m_LocalScale: {x: 1.025641, y: 1.025641, z: 1.025641}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1511031887}
+  - {fileID: 966840123}
+  m_Father: {fileID: 1574037440}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &234345296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234345294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df2f871069b09646823129177053ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PanelToggle
+  panel: {fileID: 1511031886}
+  initialSelectedObject: {fileID: 1809860707}
+  closedSelectedObject: {fileID: 966840122}
 --- !u!1 &238349615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,9 +1156,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1574037442}
-        m_TargetAssemblyTypeName: OptionPanelToggle, Assembly-CSharp
-        m_MethodName: CloseOption
+      - m_Target: {fileID: 234345296}
+        m_TargetAssemblyTypeName: PanelToggle, Assembly-CSharp
+        m_MethodName: ClosePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1327,6 +1376,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &670926381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 670926382}
+  - component: {fileID: 670926383}
+  m_Layer: 0
+  m_Name: HighScore Reset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &670926382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670926381}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.8359374, y: 24.403404, z: 0}
+  m_LocalScale: {x: 1.025641, y: 1.025641, z: 1.025641}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1038890230}
+  m_Father: {fileID: 1574037440}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &670926383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670926381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df2f871069b09646823129177053ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PanelToggle
+  panel: {fileID: 1038890229}
+  initialSelectedObject: {fileID: 229207931}
+  closedSelectedObject: {fileID: 1815839603}
 --- !u!1 &707881805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,17 +1668,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966840122}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.97500014, y: 0.97500014, z: 0.97500014}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 29672681}
-  m_Father: {fileID: 1574037440}
+  m_Father: {fileID: 234345295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -90, y: -45}
+  m_AnchoredPosition: {x: 187.04004, y: 85.83168}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966840124
@@ -1628,9 +1725,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1574037442}
-        m_TargetAssemblyTypeName: OptionPanelToggle, Assembly-CSharp
-        m_MethodName: OpenOption
+      - m_Target: {fileID: 234345296}
+        m_TargetAssemblyTypeName: PanelToggle, Assembly-CSharp
+        m_MethodName: OpenPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1703,20 +1800,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038890229}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.97500014, y: 0.97500014, z: 0.97500014}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2071481943}
   - {fileID: 1839062781}
   - {fileID: 229207932}
-  m_Father: {fileID: 1574037440}
+  m_Father: {fileID: 670926382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1.7900391, y: -23.79332}
+  m_SizeDelta: {x: 560, y: 314.8718}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1038890231
 MonoBehaviour:
@@ -2344,9 +2441,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResetButtonHandler
   highScoreDisplay: {fileID: 2135932206}
-  confirmPanel: {fileID: 1038890229}
-  initialSelectedObject: {fileID: 229207931}
-  closedSelectedObject: {fileID: 1815839603}
 --- !u!4 &1332967964
 Transform:
   m_ObjectHideFlags: 0
@@ -2462,20 +2556,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511031886}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.97500014, y: 0.97500014, z: 0.97500014}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1809860708}
   - {fileID: 647241860}
   - {fileID: 582156753}
-  m_Father: {fileID: 1574037440}
+  m_Father: {fileID: 234345295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1.7900391, y: -23.79332}
+  m_SizeDelta: {x: 560, y: 314.8718}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1511031888
 MonoBehaviour:
@@ -2664,7 +2758,6 @@ GameObject:
   - component: {fileID: 1574037439}
   - component: {fileID: 1574037438}
   - component: {fileID: 1574037437}
-  - component: {fileID: 1574037442}
   - component: {fileID: 1574037441}
   m_Layer: 5
   m_Name: Canvas
@@ -2753,9 +2846,8 @@ RectTransform:
   - {fileID: 2140839756}
   - {fileID: 1209901725}
   - {fileID: 1546427441}
-  - {fileID: 966840123}
-  - {fileID: 1511031887}
-  - {fileID: 1038890230}
+  - {fileID: 234345295}
+  - {fileID: 670926382}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2777,21 +2869,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VolumeController
   bgmSlider: {fileID: 1809860709}
   seSlider: {fileID: 647241861}
---- !u!114 &1574037442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1574037436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9df2f871069b09646823129177053ac4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OptionPanelToggle
-  optionPanel: {fileID: 1511031886}
-  initialSelectedObject: {fileID: 1809860707}
-  closedSelectedObject: {fileID: 966840122}
 --- !u!1 &1790101120
 GameObject:
   m_ObjectHideFlags: 0
@@ -3049,6 +3126,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1332967963}
         m_TargetAssemblyTypeName: HighScoreReseter, Assembly-CSharp
         m_MethodName: ResetHighScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 670926383}
+        m_TargetAssemblyTypeName: PanelToggle, Assembly-CSharp
+        m_MethodName: ClosePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3775,18 +3864,18 @@ PrefabInstance:
     - target: {fileID: 744135821018403020, guid: a536903d48b81104daba0bccf04c18d6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1332967963}
+      objectReference: {fileID: 670926383}
     - target: {fileID: 744135821018403020, guid: a536903d48b81104daba0bccf04c18d6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 744135821018403020, guid: a536903d48b81104daba0bccf04c18d6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenConfirmPanel
+      value: OpenPanel
       objectReference: {fileID: 0}
     - target: {fileID: 744135821018403020, guid: a536903d48b81104daba0bccf04c18d6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HighScoreReseter, Assembly-CSharp
+      value: PanelToggle, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 744135821018403020, guid: a536903d48b81104daba0bccf04c18d6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
