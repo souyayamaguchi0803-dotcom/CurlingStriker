@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameDirector : MonoBehaviour
 {
     private bool isInGame = true;
     private GameReferee gameReferee;
