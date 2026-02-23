@@ -2,42 +2,42 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-// OptionPanelの表示状態を切り替える
-public class OptionPanelToggle : MonoBehaviour
+// パネルの表示状態を切り替える
+public class PanelToggle : MonoBehaviour
 {
-    [SerializeField] private GameObject optionPanel;
+    [SerializeField] private GameObject panel;
     [SerializeField] private GameObject initialSelectedObject;
     [SerializeField] private GameObject closedSelectedObject;
 
-    private bool PressedEscape => Keyboard.current != null
+    private bool isEscapePressed => Keyboard.current != null
                                 && Keyboard.current.escapeKey.wasPressedThisFrame;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        optionPanel.SetActive(false);
+        panel.SetActive(false);
     }
 
     void Update()
     {
         // パネルが開いている状態の時に、ESCキーが押されたら閉じる
-        if (optionPanel.activeSelf && PressedEscape)
+        if (panel.activeSelf && isEscapePressed)
         {
-            CloseOption();
+            ClosePanel();
         }
     }
 
-    // 設計パネルを開く
-    public void OpenOption()
+    // パネルを開く
+    public void OpenPanel()
     {
-        optionPanel.SetActive(true);
+        panel.SetActive(true);
         FocusSetter.Set(initialSelectedObject);
     }
 
-    // 設計パネルを閉じる
-    public void CloseOption()
+    // パネルを閉じる
+    public void ClosePanel()
     {
-        optionPanel.SetActive(false);
+        panel.SetActive(false);
         FocusSetter.Set(closedSelectedObject);
     }
 }
