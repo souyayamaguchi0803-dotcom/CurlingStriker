@@ -4,8 +4,7 @@ using UnityEngine.EventSystems;
 
 public class GameResult : MonoBehaviour
 {
-    [SerializeField] private GameObject stone;
-    [SerializeField] private GameObject house;
+    [SerializeField] private ScoreCalculator calculator;
     [SerializeField] private GameObject resultUI;
     [SerializeField] private TextMeshProUGUI resultText;
     [SerializeField] private GameObject initialSelectedObject;
@@ -13,7 +12,7 @@ public class GameResult : MonoBehaviour
     // ゲーム終了時の処理
     public void EndGame()
     {
-        Score score = new Score(stone.transform.position, house.transform.position);
+        Score score = calculator.Calculate();
         ShowResult(score);
         HighScoreManager.UpdateHighScore(score);
         FocusSetter.Set(initialSelectedObject);
