@@ -86,3 +86,58 @@
   また、スクリプトのフォルダ構成やシーンのヒエラルキーについても「画面別」ではなく「機能別（ドメイン別）」にまとめることで、目的のファイルを探す手間を極力減らす工夫をしています。
 * **「目的のある」リファクタリングの徹底**
   目的のない過度な抽象化はオーバーエンジニアリングを招き、かえってコードを読みにくくするという考えのもと「現状の問題点は何か」「なぜその解決策（デザインパターンなど）が必要なのか」を明確に言語化できた場合にのみ、リファクタリングを実行しました。
+
+### 特にこだわったポイント
+#### スコアの値オブジェクトとしての実装
+このプロジェクトでは、意図しない代入などのバグを防ぐ目的で、スコアを値オブジェクトの構造体として実装しました。
+具体的にこだわった点は、以下の通りです。
+- **`readonly struct` による値オブジェクトの実現**
+  ゲームにおけるスコアは値であり、不変性を持ち、等価比較が可能であることが望まれます。
+  これに対し、`class` ではなく `readonly struct` と構造体で定義したことにより、値オブジェクトとしての性質を不要な複雑性を排除して実現しました。
+- **目的に合わせたコンストラクタ**
+  構造体 `Score` には、ストーンとハウスの距離からスコアを計算するコンストラクタと、スコアを `float` の引数として受け取り `Score` 型に変換するコンストラクタを用意しました。
+  これにより、ゲームの結果からスコアを算出する前者と、保存されたハイスコアの復元を行う後者という形で、初期化方法の異なるスコアを、統一的に扱うことを可能にしました。
+- **本質を追求したメソッドのネーミング**
+  スコアの良し悪しの判定には、`IsBetterThan()` メソッドを用意しました。
+  「値が大きい」「値が小さい」ではなく、「値が良い」というこのゲームにおける本質を追求した `Better` という語を使い、拡張性と可読性を両立いたしました。
+  また、自然な英語として読めるメソッド名とすることにより、可読性の更なる向上を図りました。
+
+<details>
+<summary>実際の `Score.cs` のコード（クリックで展開）</summary>
+
+```csharp
+using UnityEngine;
+
+public readonly struct Score
+{
+	public readonly float Value;
+	public const string unit = "m";
+	public const float maxValue = 999f;
+
+	// スコアを計算して初期化するコンストラクタ
+	public Score(Vector2 stonePosition, Vector2 housePosition)
+	{
+		Value = Vector2.Distance(stonePosition, housePosition);
+		if (Value > maxValue) Value = maxValue;
+	}
+
+	// スコア値を直接受け取って初期化するコンストラクタ
+	public Score(float value)
+	{
+		this.Value = value;
+	}
+
+	// スコアの表示
+	public string Show()
+	{
+		return $"{Value:F2}{unit}";
+	}
+
+	// より良いスコアならtrueを返す
+	public bool IsBetterThan(Score other)
+	{
+		return Value < other.Value;
+	}
+}
+</details>
+
