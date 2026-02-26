@@ -152,3 +152,20 @@ public readonly struct Score
   `VolumeSettings` は音量設定が変更された際にイベントを発行し、`SoundSpeaker` はそれを購読するようにしました。これにより、`VolumeSettings` はどのクラスが音量の変化の通知を必要としているかの情報を知る必要がなくなりました。
 - **拡張性を保つクラスのネーミング**
   `VolumeSlider` は、MVCパターンのコントローラーに当たりますが、`VolumeController` という名前にはしませんでした。これは、将来音量調節をスライダー以外で行う機能修正・拡張が行われることになった際に、名前が衝突することなくクラスの新規作成が行えるようにすることを意図したためです。
+
+```mermaid
+graph TD
+    %% Controller層 (入力)
+    VolumeSlider[VolumeSlider] -->|音量設定の変更を要求| VolumeSettings
+
+    %% Model層 (データ管理)
+    VolumeSettings[VolumeSettings] -->|音量設定の変更を通知| SoundSpeaker
+
+    %% View層 (出力)
+    SoundSpeaker[SoundSpeaker]
+
+    %% ノードの色付け
+    style VolumeSlider fill:#1f77b4,color:#fff,stroke-width:0px
+    style VolumeSettings fill:#ff7f0e,color:#fff,stroke-width:0px
+    style SoundSpeaker fill:#2ca02c,color:#fff,stroke-width:0px
+```
