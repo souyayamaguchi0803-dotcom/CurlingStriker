@@ -78,3 +78,94 @@
 ### SE (効果音)
 - **効果音ラボ** 様
     - https://soundeffect-lab.info/
+
+## コード設計
+### 設計の方針
+* **単一責任原則（SRP）と機能別パッケージング**
+  一つのクラスが一つの役割に専念できるよう、クラスを細かく分割しました。
+  また、スクリプトのフォルダ構成やシーンのヒエラルキーについても「画面別」ではなく「機能別（ドメイン別）」にまとめることで、目的のファイルを探す手間を極力減らす工夫をしています。
+* **「目的のある」リファクタリングの徹底**
+  目的のない過度な抽象化はオーバーエンジニアリングを招き、かえってコードを読みにくくするという考えのもと「現状の問題点は何か」「なぜその解決策（デザインパターンなど）が必要なのか」を明確に言語化できた場合にのみ、リファクタリングを実行しました。
+
+### 特にこだわったポイント
+#### スコアの値オブジェクトとしての実装
+このプロジェクトでは、意図しない代入などのバグを防ぐ目的で、スコアを値オブジェクトの構造体 `Score` として実装しました。
+具体的にこだわった点は、以下の通りです。
+- **`readonly struct` による値オブジェクトの実現**
+  ゲームにおけるスコアは値であり、不変性を持ち、等価比較が可能であることが望まれます。
+  これに対し、`class` ではなく `readonly struct` と構造体で定義したことにより、値オブジェクトとしての性質を不要な複雑性を排除して実現しました。
+- **目的に合わせたコンストラクタ**
+  構造体 `Score` には、ストーンとハウスの距離からスコアを計算するコンストラクタと、スコアを `float` の引数として受け取り `Score` 型に変換するコンストラクタを用意しました。
+  これにより、ゲームの結果からスコアを算出する前者と、保存されたハイスコアの復元を行う後者という形で、初期化方法の異なるスコアを、統一的に扱うことを可能にしました。
+- **本質を追求したメソッドのネーミング**
+  スコアの良し悪しの判定には、`IsBetterThan()` メソッドを用意しました。
+  「値が大きい」「値が小さい」ではなく、「値が良い」というこのゲームにおける本質を追求した `Better` という語を使い、拡張性と可読性を両立いたしました。
+  また、自然な英語として読めるメソッド名とすることにより、可読性の更なる向上を図りました。
+
+<details>
+<summary>実際の Score.cs のコード（クリックで展開）</summary>
+
+```csharp
+using UnityEngine;
+
+public readonly struct Score
+{
+	public readonly float Value;
+	public const string unit = "m";
+	public const float maxValue = 999f;
+
+	// スコアを計算して初期化するコンストラクタ
+	public Score(Vector2 stonePosition, Vector2 housePosition)
+	{
+		Value = Vector2.Distance(stonePosition, housePosition);
+		if (Value > maxValue) Value = maxValue;
+	}
+
+	// スコア値を直接受け取って初期化するコンストラクタ
+	public Score(float value)
+	{
+		this.Value = value;
+	}
+
+	// スコアの表示
+	public string Show()
+	{
+		return $"{Value:F2}{unit}";
+	}
+
+	// より良いスコアならtrueを返す
+	public bool IsBetterThan(Score other)
+	{
+		return Value < other.Value;
+	}
+}
+```
+
+</details>
+
+#### 疎結合を重視した音量調節機能
+音量調節機能においては、目的に応じて `SoundSpeaker`、`VolumeSettings`、`VolumeSlider` の3クラスに分割し、疎結合な実装となるよう心がけました。
+具体的にこだわった点は、以下の通りです。
+- **MVCパターンによる責任の分離**
+  音量設定のデータを管理・保存する `VolumeSetting`、ユーザーに触れる部分を処理する `SoundSpeaker`、ユーザーの入力を処理する `VolumeSlider` という三つのクラスを作成しました。これにより変更の理由を分割し、独立した保守を可能にしました。
+- **Observerパターンによる疎結合の実現**
+  `VolumeSettings` は音量設定が変更された際にイベントを発行し、`SoundSpeaker` はそれを購読するようにしました。これにより、`VolumeSettings` はどのクラスが音量の変化の通知を必要としているかの情報を知る必要がなくなりました。
+- **拡張性を保つクラスのネーミング**
+  `VolumeSlider` は、MVCパターンのコントローラーに当たりますが、`VolumeController` という名前にはしませんでした。これは、将来音量調節をスライダー以外で行う機能修正・拡張が行われることになった際に、名前が衝突することなくクラスの新規作成が行えるようにすることを意図したためです。
+
+```mermaid
+graph TD
+    %% Controller層 (入力)
+    VolumeSlider[VolumeSlider] -->|音量設定の変更を要求| VolumeSettings
+
+    %% Model層 (データ管理)
+    VolumeSettings[VolumeSettings] -->|音量設定の変更を通知| SoundSpeaker
+
+    %% View層 (出力)
+    SoundSpeaker[SoundSpeaker]
+
+    %% ノードの色付け
+    style VolumeSlider fill:#1f77b4,color:#fff,stroke-width:0px
+    style VolumeSettings fill:#ff7f0e,color:#fff,stroke-width:0px
+    style SoundSpeaker fill:#2ca02c,color:#fff,stroke-width:0px
+```
