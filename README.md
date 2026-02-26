@@ -144,10 +144,10 @@ public readonly struct Score
 </details>
 
 #### 疎結合を重視した音量調節機能
-音量調節機能においては、目的に応じて `SoundSperker`、`VolumeSettings`、`VolumeSlider` の3クラスに分割し、疎結合な実装となるよう心がけました。
+音量調節機能においては、目的に応じて `SoundSpeaker`、`VolumeSettings`、`VolumeSlider` の3クラスに分割し、疎結合な実装となるよう心がけました。
 具体的にこだわった点は、以下の通りです。
 - **MVCパターンによる責任の分離**
-  音量設定のデータを管理・保存する `VolumeSetting`、ユーザーに触れる部分を処理する `SoundSperker`、ユーザーの入力を処理する `VolumeSlider` という三つのクラスを作成しました。これにより変更の理由を分割し、独立した保守を可能にしました。
+  音量設定のデータを管理・保存する `VolumeSetting`、ユーザーに触れる部分を処理する `SoundSpeaker`、ユーザーの入力を処理する `VolumeSlider` という三つのクラスを作成しました。これにより変更の理由を分割し、独立した保守を可能にしました。
 - **Observerパターンによる疎結合の実現**
   `VolumeSettings` は音量設定が変更された際にイベントを発行し、`SoundSpeaker` はそれを購読するようにしました。これにより、`VolumeSettings` はどのクラスが音量の変化の通知を必要としているかの情報を知る必要がなくなりました。
 - **拡張性を保つクラスのネーミング**
