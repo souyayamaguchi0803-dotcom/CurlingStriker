@@ -103,7 +103,7 @@
   また、自然な英語として読めるメソッド名とすることにより、可読性の更なる向上を図りました。
 
 <details>
-<summary>実際の `Score.cs` のコード（クリックで展開）</summary>
+<summary>実際の Score.cs のコード（クリックで展開）</summary>
 
 ```csharp
 using UnityEngine;
@@ -139,5 +139,7 @@ public readonly struct Score
 		return Value < other.Value;
 	}
 }
+```
+
 </details>
 
