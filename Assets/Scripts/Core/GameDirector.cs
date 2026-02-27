@@ -21,7 +21,7 @@ public class GameDirector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInGame && gameReferee.IsGameOver())
+        if (isInGame && gameReferee.DeclaresGameOver())
         {
             OnGameOver();
         }

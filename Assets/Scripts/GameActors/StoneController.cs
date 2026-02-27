@@ -16,7 +16,7 @@ public class StoneController : MonoBehaviour
     void Update()
     {
         if (!HasAccelerateInput) return;
-        if (referee == null || !referee.CanAccelerate()) return;
+        if (referee == null || !referee.AllowsAcceleration()) return;
         stone.TryAccelerate();
     }
 

@@ -13,19 +13,19 @@ public class GameReferee
     }
 
     // 加速ができるか判定
-    public bool CanAccelerate()
+    public bool AllowsAcceleration()
     {
-        return !IsOverLine();
+        return !HasStoneOverLine();
     }
 
     // ゲームは終了したか判定
-    public bool IsGameOver()
+    public bool DeclaresGameOver()
     {
-        return IsOverLine() && stone.IsStopped;
+        return HasStoneOverLine() && stone.IsStopped;
     }
 
     // ボーダーラインを超えたか判定
-    bool IsOverLine()
+    bool HasStoneOverLine()
     {
         if (line == null) return false; // lineが未設定の場合falseを返す
         return stone.CurrentX > line.transform.position.x;
