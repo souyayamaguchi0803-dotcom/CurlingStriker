@@ -1543,7 +1543,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 47785808217664240, guid: 0ef9d67478fa96a479318745e5b866a7, type: 3}
       propertyPath: m_Navigation.m_Mode
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 47785808217664240, guid: 0ef9d67478fa96a479318745e5b866a7, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
@@ -1585,6 +1585,14 @@ PrefabInstance:
       propertyPath: m_Colors.m_SelectedColor.r
       value: 0.8627451
       objectReference: {fileID: 0}
+    - target: {fileID: 47785808217664240, guid: 0ef9d67478fa96a479318745e5b866a7, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 2140839757}
+    - target: {fileID: 47785808217664240, guid: 0ef9d67478fa96a479318745e5b866a7, type: 3}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 4744704544310213565}
     - target: {fileID: 451375028838371473, guid: 0ef9d67478fa96a479318745e5b866a7, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 4
