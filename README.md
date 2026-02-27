@@ -16,6 +16,8 @@
 
 [**GitHub Pages で今すぐ遊ぶ！**](https://souyayamaguchi0803-dotcom.github.io/CurlingStriker/)
 
+*(※現在も継続してアップデートやリファクタリングを行っているため、動作説明動画と実際の最新バージョンのUI・挙動が一部異なる場合があります)*
+
 ### 遊び方
 - **対応デバイス**: PC、スマートフォン
 
