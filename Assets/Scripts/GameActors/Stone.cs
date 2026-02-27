@@ -38,7 +38,7 @@ public class Stone : MonoBehaviour
     }
 
     // 停止しているか判定
-    public bool IsStop()
+    public bool IsStopped()
     {
         return rb.linearVelocity == Vector2.zero;
     }

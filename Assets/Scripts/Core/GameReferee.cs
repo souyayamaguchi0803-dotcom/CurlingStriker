@@ -21,7 +21,7 @@ public class GameReferee
     // ゲームは終了したか判定
     public bool IsGameOver()
     {
-        return IsOverLine() && stone.IsStop();
+        return IsOverLine() && stone.IsStopped();
     }
 
     // ボーダーラインを超えたか判定
