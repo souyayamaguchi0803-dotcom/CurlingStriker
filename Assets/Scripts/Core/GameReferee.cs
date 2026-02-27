@@ -13,7 +13,7 @@ public class GameReferee
     }
 
     // 加速ができるか判定
-    public bool CanAccelerate()
+    public bool AllowsAcceleration()
     {
         return !IsOverLine();
     }
