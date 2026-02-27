@@ -19,7 +19,7 @@ public class GameReferee
     }
 
     // ゲームは終了したか判定
-    public bool IsGameOver()
+    public bool DeclaresGameOver()
     {
         return IsOverLine() && stone.IsStopped;
     }
