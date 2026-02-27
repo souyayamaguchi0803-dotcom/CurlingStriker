@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30CF\u30A4\u30B9\u30B3\u30A2: 999m"
+  m_text: "\u30CF\u30A4\u30B9\u30B3\u30A2: 999.00m"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9c0e9009ab5d7734387b501cc12d4563, type: 2}
   m_sharedMaterial: {fileID: 4481351194434351095, guid: 9c0e9009ab5d7734387b501cc12d4563, type: 2}
@@ -104,6 +104,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
