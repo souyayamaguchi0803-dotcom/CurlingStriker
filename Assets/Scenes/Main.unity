@@ -304,8 +304,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 570746441}
-        m_TargetAssemblyTypeName: GameStarter, Assembly-CSharp
-        m_MethodName: StartNewGame
+        m_TargetAssemblyTypeName: MainLoader, Assembly-CSharp
+        m_MethodName: Load
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1015,7 +1015,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 687871081}
         m_TargetAssemblyTypeName: TitleLoader, Assembly-CSharp
-        m_MethodName: LoadTitleScene
+        m_MethodName: Load
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2009,7 +2009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6403338733597143844, guid: dae203d2115c76442b873edc010c8c70, type: 3}
       propertyPath: m_Name
-      value: Game Starter
+      value: Main Loader
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
