@@ -1082,7 +1082,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1967495133}
   m_Layer: 5
-  m_Name: Comfirm Root
+  m_Name: Confirm Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1595,7 +1595,7 @@ GameObject:
   - component: {fileID: 1004212825906596881}
   - component: {fileID: 3961644580793641327}
   m_Layer: 5
-  m_Name: Comfirm Panel
+  m_Name: Confirm Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3562,7 +3562,7 @@ GameObject:
   - component: {fileID: 6861009292769802728}
   - component: {fileID: 5300777896615490848}
   m_Layer: 5
-  m_Name: Comfirm Text
+  m_Name: Confirm Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
