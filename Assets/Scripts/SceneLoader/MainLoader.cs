@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameStarter : MonoBehaviour
+public class MainLoader : MonoBehaviour
 {
 	public static void StartNewGame()
 	{
