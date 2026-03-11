@@ -7,6 +7,7 @@ public class ScoreCalculator : MonoBehaviour
 
     public Score Calculate()
     {
-        return new Score(stone.transform.position, house.transform.position);
+        float distance = Vector2.Distance(stone.transform.position, house.transform.position);
+        return new Score(distance);
     }
 }
