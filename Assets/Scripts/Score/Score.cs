@@ -15,10 +15,10 @@ public readonly struct Score
 	}
 
 	// スコア値を直接受け取って初期化するコンストラクタ
-	public Score(float value)
+	public Score(float rawValue)
 	{
-		Assert.IsTrue(value >= 0f, $"スコアに負の値({value})が指定されました");
-		Value = Mathf.Clamp(value, 0f, maxValue);
+		Assert.IsTrue(rawValue >= 0f, $"スコアに負の値({rawValue})が指定されました");
+		Value = Mathf.Clamp(rawValue, 0f, maxValue);
 	}
 
 	// スコアの表示
