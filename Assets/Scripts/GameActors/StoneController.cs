@@ -7,11 +7,13 @@ public class StoneController : MonoBehaviour
     [SerializeField] private Stone stone;
     private GameReferee referee;
 
+    // GameRefereeのセッター
     public void SetReferee(GameReferee referee)
     {
         this.referee = referee;
     }
 
+    // 加速の入力があったら加速の準備をする
     void Update()
     {
         if (!HasAccelerateInput) return;
@@ -19,6 +21,7 @@ public class StoneController : MonoBehaviour
         stone.TryAccelerate();
     }
 
+    // 加速の入力
     private bool HasAccelerateInput
     {
         get
