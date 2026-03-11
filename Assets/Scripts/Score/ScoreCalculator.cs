@@ -6,6 +6,7 @@ public class ScoreCalculator : MonoBehaviour
     [SerializeField] private GameObject stone;
     [SerializeField] private GameObject house;
 
+    // 座標を表すプロパティ
     private Vector2 stonePosition => stone.transform.position;
     private Vector2 housePosition => house.transform.position;
 
