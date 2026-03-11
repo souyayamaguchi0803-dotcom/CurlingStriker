@@ -16,7 +16,7 @@ public readonly struct Score
 	// スコア値を直接受け取って初期化するコンストラクタ
 	public Score(float value)
 	{
-		this.Value = value;
+		this.Value = Mathf.Clamp(value, 0f, maxValue);
 	}
 
 	// スコアの表示
