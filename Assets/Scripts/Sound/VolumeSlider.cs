@@ -8,7 +8,6 @@ public class VolumeSlider : MonoBehaviour
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider seSlider;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         bgmSlider.value = VolumeSettings.BgmVolume;

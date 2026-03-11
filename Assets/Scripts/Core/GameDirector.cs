@@ -18,7 +18,6 @@ public class GameDirector : MonoBehaviour
         SoundSpeaker.Instance.PlayBGM(gameBGM);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isInGame && gameReferee.DeclaresGameOver())

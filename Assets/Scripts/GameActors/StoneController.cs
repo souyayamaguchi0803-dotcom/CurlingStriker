@@ -12,7 +12,6 @@ public class StoneController : MonoBehaviour
         this.referee = referee;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!HasAccelerateInput) return;
