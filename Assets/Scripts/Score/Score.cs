@@ -18,7 +18,7 @@ public readonly struct Score
 	public Score(float value)
 	{
 		Assert.IsTrue(value >= 0f, $"スコアに負の値({value})が指定されました");
-		this.Value = Mathf.Clamp(value, 0f, maxValue);
+		Value = Mathf.Clamp(value, 0f, maxValue);
 	}
 
 	// スコアの表示
