@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public readonly struct Score
 {
@@ -16,6 +17,7 @@ public readonly struct Score
 	// スコア値を直接受け取って初期化するコンストラクタ
 	public Score(float value)
 	{
+		Assert.IsTrue(value >= 0f, $"スコアに負の値({value})が指定されました");
 		this.Value = Mathf.Clamp(value, 0f, maxValue);
 	}
 
