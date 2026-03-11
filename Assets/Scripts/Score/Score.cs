@@ -7,14 +7,7 @@ public readonly struct Score
 	public const string unit = "m";
 	public const float maxValue = 999f;
 
-	// スコアを計算して初期化するコンストラクタ
-	public Score(Vector2 stonePosition, Vector2 housePosition)
-	{
-		float rawValue = Vector2.Distance(stonePosition, housePosition);
-		Value = Mathf.Clamp(rawValue, 0f, maxValue);
-	}
-
-	// スコア値を直接受け取って初期化するコンストラクタ
+	// スコア値を直接受け取って初期化
 	public Score(float rawValue)
 	{
 		Assert.IsTrue(rawValue >= 0f, $"スコアに負の値({rawValue})が指定されました");
