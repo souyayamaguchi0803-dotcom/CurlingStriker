@@ -8,12 +8,13 @@ public class VolumeSlider : MonoBehaviour
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider seSlider;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // スライダーの位置の初期化
         bgmSlider.value = VolumeSettings.BgmVolume;
         seSlider.value = VolumeSettings.SeVolume;
 
+        // 操作時の処理を設定
         bgmSlider.onValueChanged.AddListener(OnBgmVolumeChanged);
         seSlider.onValueChanged.AddListener(OnSeVolumeChanged);
     }

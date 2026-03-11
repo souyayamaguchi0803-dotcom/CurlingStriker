@@ -8,6 +8,7 @@ public class SoundSpeaker : MonoBehaviour
     [SerializeField] private AudioSource bgmSource;
     [SerializeField] private AudioSource seSource;
 
+    // インスタンスが一つであることを保証する
     private void Awake()
     {
         if (Instance != null && Instance != this)

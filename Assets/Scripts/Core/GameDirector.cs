@@ -13,14 +13,16 @@ public class GameDirector : MonoBehaviour
 
     void Start()
     {
+        // stoneControllerにgameRefereeについての依存性を注入
         gameReferee = new GameReferee(stone, line);
         stoneController.SetReferee(gameReferee);
+
         SoundSpeaker.Instance.PlayBGM(gameBGM);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // ゲームが終了したらOnGameOver()を呼ぶ
         if (isInGame && gameReferee.DeclaresGameOver())
         {
             OnGameOver();
