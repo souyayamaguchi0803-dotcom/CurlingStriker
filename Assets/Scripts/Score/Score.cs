@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public readonly struct Score
 {
@@ -9,14 +10,15 @@ public readonly struct Score
 	// スコアを計算して初期化するコンストラクタ
 	public Score(Vector2 stonePosition, Vector2 housePosition)
 	{
-		Value = Vector2.Distance(stonePosition, housePosition);
-		if (Value > maxValue) Value = maxValue;
+		float rawValue = Vector2.Distance(stonePosition, housePosition);
+		Value = Mathf.Clamp(rawValue, 0f, maxValue);
 	}
 
 	// スコア値を直接受け取って初期化するコンストラクタ
-	public Score(float value)
+	public Score(float rawValue)
 	{
-		this.Value = value;
+		Assert.IsTrue(rawValue >= 0f, $"スコアに負の値({rawValue})が指定されました");
+		Value = Mathf.Clamp(rawValue, 0f, maxValue);
 	}
 
 	// スコアの表示
