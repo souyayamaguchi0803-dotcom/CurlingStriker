@@ -11,6 +11,18 @@ public class HighScoreDisplay : MonoBehaviour
         Display();
     }
 
+    // 有効時にイベント購読
+    private void OnEnable()
+    {
+        HighScoreManager.OnHighScoreReset += Display;
+    }
+
+    // 無効時はイベント購読を解除
+    private void OnDisable()
+    {
+        HighScoreManager.OnHighScoreReset -= Display;
+    }
+
     // 現在のハイスコアを表示する
     public void Display()
     {
