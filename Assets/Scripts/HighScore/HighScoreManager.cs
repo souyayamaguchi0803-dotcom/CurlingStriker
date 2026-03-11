@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class HighScoreManager
 {
+    public static event Action OnHighScoreReset;
     private const string HighScoreKey = "HighScore";
     private const float DefaultHighScore = Score.maxValue;
 
@@ -28,5 +30,6 @@ public class HighScoreManager
     {
         PlayerPrefs.SetFloat(HighScoreKey, DefaultHighScore);
         PlayerPrefs.Save();
+        OnHighScoreReset?.Invoke();
     }
 }
